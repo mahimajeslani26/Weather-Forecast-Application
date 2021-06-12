@@ -1,5 +1,9 @@
 const request = require('postman-request');
-const { mapbox_access_token } = require('../../access_tokens.js');
+const path = require('path');
+
+const accessTokenPath = path.join(__dirname, '../../access_tokens.js');
+
+const { mapbox_access_token } = require(accessTokenPath);
 
 //takes in adress and gives geocode as latitude and longitude for the address
 const geocode = (address, callback) => {

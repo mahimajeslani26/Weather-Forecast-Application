@@ -1,6 +1,9 @@
 const request = require('postman-request');
+const path = require('path');
 
-const { weatherstack_access_key } = require('../../access_tokens.js');
+const accessTokenPath = path.join(__dirname, '../../access_tokens.js');
+
+const { weatherstack_access_key } = require(accessTokenPath);
 
 const forecast = ({ latitude, longitude }, callback) => {
   //we expect latitude and longitude in the location data
