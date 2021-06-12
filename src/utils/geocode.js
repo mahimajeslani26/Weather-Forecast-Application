@@ -1,10 +1,11 @@
 const request = require('postman-request');
+const { mapbox_access_token } = require('../../access_tokens');
 
 //takes in adress and gives geocode as latitude and longitude for the address
 const geocode = (address, callback) => {
   const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
     address
-  )}.json?access_token=pk.eyJ1IjoibWplczEyMyIsImEiOiJjajZ0ZGNmYmwwZ2EyMzhvMzBnMG1ubTZnIn0.rRal0x_beWhKtmOEZahvww&limit=1`;
+  )}.json?access_token=${mapbox_access_token}&limit=1`;
 
   request({ url, json: true }, (err, { body }) => {
     if (err) {
